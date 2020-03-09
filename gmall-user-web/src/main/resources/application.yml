@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: debug
+
+spring:
+  #消费者
+  dubbo:
+    application: user-web
+    registry:
+      address: 192.168.124.129:2181
+      protocol: zookeeper
+    protocol:
+      name: dubbo
+    base-package: com.rufeng2333.gmall
+    consumer:
+      #设置超时时间10分钟
+      timeout: 600000
+      #设置不检查服务是否存在
+      check: false
