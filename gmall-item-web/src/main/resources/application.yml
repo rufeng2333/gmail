@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    root: info
+
+spring:
+  dubbo:
+    application: item-web
+    registry:
+      address: 192.168.124.129:2181
+      protocol: zookeeper
+    protocol:
+      name: dubbo
+    base-package: com.rufeng2333.gmall
+    consumer:
+      timeout: 600000
+      check: false
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false

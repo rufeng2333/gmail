@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/guli?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    password: 5110
+
+  elasticsearch:
+    jest:
+      uris: http://192.168.124.129:9200
+
+  #提供者
+  dubbo:
+    application: search-service
+    registry:
+      address: 192.168.124.129:2181
+      protocol: zookeeper
+    protocol:
+      name: dubbo
+    base-package: com.rufeng2333.gmall
+
+server:
+  port: 8073
+
+logging:
+  level:
+    root: info
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
