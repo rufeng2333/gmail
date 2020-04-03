@@ -11,3 +11,12 @@ gmall-search-web     8083
 
 gmall-cart-service 8064
 gmall-cart-web     8084
+
+gmall-passport-web 8085
+
+gmall-order-web 8086
+gmall-order-service 8076
+
+gmall-payment 8087
+
+gware-manage 直接导入的

@@ -36,4 +36,5 @@ public class UserServiceImpl implements UserService {
         List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = umsMemberReceiveAddressMapper.selectByExample(e);
         return umsMemberReceiveAddresses;
     }
+
 }

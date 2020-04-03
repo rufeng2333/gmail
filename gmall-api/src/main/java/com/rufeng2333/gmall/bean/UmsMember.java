@@ -8,24 +8,68 @@ public class UmsMember implements Serializable {
 
     @Id
     private String id;
-    private String         memberLevelId;
+    private String memberLevelId;
     private String username;
-    private String         password;
+    private String password;
     private String nickname;
-    private String         phone;
+    private String phone;
     private int status;
     private Date createTime;
     private String icon;
-    private int         gender;
+    private String gender;
     private Date birthday;
-    private String        city;
+    private String city;
     private String job;
-    private String         personalizedSignature;
-    private int sourceType;
-    private int         integration;
+    private String personalizedSignature;
+    private String sourceType;
+    private int integration;
     private int growth;
-    private int         luckeyCount;
+    private int luckeyCount;
     private int historyIntegration;
+    private String sourceUid;
+    private String accessToken;
+    private String accessCode;
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
+    }
+
+    public String getSourceUid() {
+        return sourceUid;
+    }
+
+    public void setSourceUid(String sourceUid) {
+        this.sourceUid = sourceUid;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getAccessCode() {
+        return accessCode;
+    }
+
+    public void setAccessCode(String accessCode) {
+        this.accessCode = accessCode;
+    }
 
     public String getId() {
         return id;
@@ -99,13 +143,6 @@ public class UmsMember implements Serializable {
         this.icon = icon;
     }
 
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
 
     public Date getBirthday() {
         return birthday;
@@ -139,13 +176,7 @@ public class UmsMember implements Serializable {
         this.personalizedSignature = personalizedSignature;
     }
 
-    public int getSourceType() {
-        return sourceType;
-    }
 
-    public void setSourceType(int sourceType) {
-        this.sourceType = sourceType;
-    }
 
     public int getIntegration() {
         return integration;

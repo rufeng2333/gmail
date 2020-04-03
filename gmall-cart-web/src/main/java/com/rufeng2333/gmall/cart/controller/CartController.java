@@ -3,6 +3,7 @@ package com.rufeng2333.gmall.cart.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
+import com.rufeng2333.gmall.annotations.LoginRequired;
 import com.rufeng2333.gmall.bean.OmsCartItem;
 import com.rufeng2333.gmall.bean.PmsSkuInfo;
 import com.rufeng2333.gmall.service.CartService;
@@ -29,10 +30,12 @@ public class CartController {
     @Reference
     CartService cartService;
 
+    @LoginRequired(loginSuccess = false)
     @RequestMapping("checkCart")
     public String checkCart(String isChecked, String skuId, HttpServletRequest request, HttpServletResponse response, ModelMap modelMap){
 
-        String memberId = "1";
+        String memberId = (String) request.getAttribute("memberId");
+        String nickname = (String) request.getAttribute("nickname");
 
         OmsCartItem omsCartItem = new OmsCartItem();
         omsCartItem.setProductSkuId(skuId);
@@ -49,11 +52,13 @@ public class CartController {
         return "cartListInner";
     }
 
+    @LoginRequired(loginSuccess = false)
     @RequestMapping("cartList")
     public String cartList(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap){
 
         List<OmsCartItem> omsCartItems = new ArrayList<>();
-        String memberId = "1";
+        String memberId = (String) request.getAttribute("memberId");
+        String nickname = (String) request.getAttribute("nickname");
         if(StringUtils.isNotBlank(memberId)){
             omsCartItems = cartService.cartList(memberId);
         }else {
@@ -86,7 +91,7 @@ public class CartController {
         return totalAmount;
     }
 
-
+    @LoginRequired(loginSuccess = false)
     @RequestMapping("addToCart")
     public String addToCart(String skuId, int quantity, HttpServletRequest request, HttpServletResponse response){
 
@@ -110,7 +115,8 @@ public class CartController {
 
 
 
-        String memberId = "1";
+        String memberId = (String) request.getAttribute("memberId");
+        String nickname = (String) request.getAttribute("nickname");
         if(StringUtils.isBlank(memberId)){
             String cartListCookie = CookieUtil.getCookieValue(request, "cartListCookie", true);
             if(StringUtils.isBlank(cartListCookie)){
